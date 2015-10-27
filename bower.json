@@ -1,0 +1,24 @@
+{
+  "name": "Entorno Virtual",
+  "description": "Entorno Virtual para SHEC",
+  "main": "",
+  "authors": [
+    "ivan-rangel <ivan05rangel@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Node"
+  ],
+  "homepage": "https://github.com/SHEC/Entorno",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
