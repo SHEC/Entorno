@@ -1,5 +1,25 @@
 extends layout
-
 block content
-  h1= title
-  p Welcome to #{title}
+  nav.navbar.navbar-inverse
+    .container
+      .navbar-header
+        a(href="#").navbar-brand SHEC
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href="#") New user
+        li.divider
+        li
+          a(href="#") Old user
+
+  .container
+    h2.text-center.col-md-12 Entorno
+      .container-well
+        img(id="entorno", src="images/rv.jpg")
+    
+  include footer.jade
+        
+      
+        
+  
+
+
