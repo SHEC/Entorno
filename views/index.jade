@@ -6,10 +6,47 @@ block content
         a(href="#").navbar-brand SHEC
       ul.nav.navbar-nav.navbar-right
         li
-          a(href="#") New user
-        li.divider
+          a(data-toggle="modal" data-target="#newUser") New user
+        #newUser.modal.fade(role='dialog')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type="button", data-dismiss="modal" ) x
+                h4.modal-title Registrate para accesar a SHEC
+              .modal-body
+                .form-group
+                  label.control-label(for='id_user') Username
+                  input.form-control(id='id_user',type="text", placeholder="Elije tu nombre de usuario")
+                .form-group
+                  label.control-label(for='email') Edad
+                  input.form-control(id='email',type="email", placeholder="Indica tu edad")
+                .form-group
+                  label.control-label(for='sell') Sexo:
+                  select.form-control(id="sell")
+                    option Selecciona tu sexo
+                    option M
+                    option F
+              .modal-footer
+                button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
+                button.btn.btn-primary(type="button") Registrar
         li
-          a(href="#") Old user
+          a(data-toggle="modal" data-target="#oldUser") Old user
+        #oldUser.modal.fade(role='dialog')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type="button", data-dismiss="modal" ) x
+                h4.modal-title Inicia sesión para accesar a SHEC
+              .modal-body
+                .form-group
+                  label.control-label(for='id_user') Username
+                  input.form-control(id='id_user',type="text", placeholder="Indica tu nombre de usuario")
+                .form-group
+                  label.control-label(for='email') Email
+                  input.form-control(id='email',type="email", placeholder="Escribe tu email")
+              .modal-footer
+                button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
+                button.btn.btn-primary(type="button") Iniciar sesión
 
   .container
     h2.text-center.col-md-12 Entorno
