@@ -6,7 +6,7 @@ block content
         a(href="#").navbar-brand SHEC
       ul.nav.navbar-nav.navbar-right
         li
-          a(data-toggle="modal" data-target="#newUser") New user
+          a(data-toggle="modal" data-target="#newUser") Nuevo Usuario
         #newUser.modal.fade(role='dialog')
           .modal-dialog
             .modal-content
@@ -30,7 +30,7 @@ block content
                 button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
                 button.btn.btn-primary(type="button") Registrar
         li
-          a(data-toggle="modal" data-target="#oldUser") Old user
+          a(data-toggle="modal" data-target="#oldUser") Usuario Registrado
         #oldUser.modal.fade(role='dialog')
           .modal-dialog
             .modal-content
@@ -41,9 +41,6 @@ block content
                 .form-group
                   label.control-label(for='id_user') Username
                   input.form-control(id='id_user',type="text", placeholder="Indica tu nombre de usuario")
-                .form-group
-                  label.control-label(for='email') Email
-                  input.form-control(id='email',type="email", placeholder="Escribe tu email")
               .modal-footer
                 button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
                 button.btn.btn-primary(type="button") Iniciar sesión
