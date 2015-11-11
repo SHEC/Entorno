@@ -12,11 +12,11 @@ block content
             .modal-content
               .modal-header
                 button.close(type="button", data-dismiss="modal" ) x
-                h4.modal-title Registrate para accesar a SHEC
+                h4.modal-title Registrate para acceder a SHEC
               .modal-body
                 .form-group
-                  label.control-label(for='id_user') Username
-                  input.form-control(id='id_user',type="text", placeholder="Elije tu nombre de usuario")
+                  label.control-label(for='userName') Username
+                  input.form-control(id='userName',type="text", placeholder="Elije tu nombre de usuario")
                 .form-group
                   label.control-label(for='email') Edad
                   input.form-control(id='email',type="email", placeholder="Indica tu edad")
@@ -36,11 +36,14 @@ block content
             .modal-content
               .modal-header
                 button.close(type="button", data-dismiss="modal" ) x
-                h4.modal-title Inicia sesión para accesar a SHEC
+                h4.modal-title Inicia sesión para acceder a SHEC
               .modal-body
                 .form-group
-                  label.control-label(for='id_user') Username
-                  input.form-control(id='id_user',type="text", placeholder="Indica tu nombre de usuario")
+                  label.control-label(for='userName') Nombre de usuario
+                  input.form-control(id='userName',type="text", placeholder="Indica tu nombre de usuario")
+                .form-group
+                  label.control-label(for='userPass') Contraseña
+                  input.form-control(id='userPass',type="password", placeholder="Indica tu contraseña")
               .modal-footer
                 button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
                 button.btn.btn-primary(type="button") Iniciar sesión
