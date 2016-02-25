@@ -1,19 +1,18 @@
 {
-  "name": "Entorno Virtual",
-  "description": "Entorno Virtual para SHEC",
+  "name": "Entorno",
+  "description": "SHEC",
   "main": "",
   "authors": [
     "ivan-rangel <ivan05rangel@gmail.com>"
   ],
   "license": "MIT",
   "keywords": [
-    "Node"
+    "VR"
   ],
   "homepage": "https://github.com/SHEC/Entorno",
   "moduleType": [
     "node"
   ],
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
@@ -22,6 +21,6 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.5"
+    "bootstrap": "^3.3.6"
   }
 }
