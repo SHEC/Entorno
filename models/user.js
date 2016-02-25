@@ -7,7 +7,7 @@ userModel={};
 
 //Funcion para crear la tabla usuario
 userModel.createTable = function(){
-  db.run("CREATE TABLE IF NOT EXISTS usuarios(id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(55), edad INTEGER, sexo BOOLEAN)")
+  db.run("CREATE TABLE IF NOT EXISTS usuarios(id INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR(55),password VARCHAR(55), edad INTEGER, sexo BOOLEAN)")
   console.log('Tabla usuarios creada con exito');
 }
 
@@ -15,7 +15,7 @@ userModel.createTable = function(){
 userModel.getUsers = function(callback){
   db.all("SELECT * FROM usuarios", function (err,res) {
     if(err)
-      console.log('Error:' + res);
+      console.log('Error:' + err);
     callback(null,res);
   });
 }
