@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var sqlite3 = require('sqlite3').verbose();
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -26,11 +25,6 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', routes);
 app.use('/users', users);
-
-//Data Base Code
-var db = new sqlite3.Database('shec');
-console.log('Acceso a base de datos exitosamente');
-
 
 
 // catch 404 and forward to error handler
