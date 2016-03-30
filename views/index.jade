@@ -1,5 +1,6 @@
 extends layout
 block content
+  //Navigation Bar
   nav.navbar.navbar-inverse
     .container
       .navbar-header
@@ -15,8 +16,11 @@ block content
                 h4.modal-title Registrate para acceder a SHEC
               .modal-body
                 .form-group
-                  label.control-label(for='userName') Username
-                  input.form-control(id='userName',type="text", placeholder="Elije tu nombre de usuario")
+                  label.control-label(for='userName') Nombre de usuario
+                  input.form-control(id='userName',type="text", placeholder="Indica tu nombre de usuario")
+                .form-group
+                  label.control-label(for='userPass') Contraseña
+                  input.form-control(id='userPass',type="password", placeholder="Indica tu contraseña")
                 .form-group
                   label.control-label(for='email') Edad
                   input.form-control(id='email',type="email", placeholder="Indica tu edad")
@@ -48,12 +52,97 @@ block content
                 button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
                 button.btn.btn-primary(type="button") Iniciar sesión
 
+  //Main container
   .container
+    table#controls
+      tr
+
+
+        td(colspan='2')
+          a(href='v1.straight.html') straight
+          |  |
+          a(href='v2.curves.html') curves
+          |      |
+          a(href='v3.hills.html') hills
+          |        |
+          a(href='v4.final.html') final
+      tr
+        td#fps(colspan='2', align='right')
+      tr
+        th
+          label(for='resolution') Resolution :
+        td
+          select#resolution(style='width:100%')
+            option(value='fine') Fine (1280x960)
+            option(selected='', value='high') High (1024x768)
+            option(value='medium') Medium (640x480)
+            option(value='low') Low (480x360)
+      tr
+        th
+          label(for='lanes') Lanes :
+        td
+          select#lanes
+            option 1
+            option 2
+            option(selected='') 3
+            option 4
+      tr
+        th
+          label(for='roadWidth')
+            | Road Width (
+            span#currentRoadWidth
+            | ) :
+        td
+          input#roadWidth(type='range', min='500', max='3000', title='integer (500-3000)')
+      tr
+        th
+          label(for='cameraHeight')
+            | CameraHeight (
+            span#currentCameraHeight
+            | ) :
+        td
+          input#cameraHeight(type='range', min='500', max='5000', title='integer (500-5000)')
+      tr
+        th
+          label(for='drawDistance')
+            | Draw Distance (
+            span#currentDrawDistance
+            | ) :
+        td
+          input#drawDistance(type='range', min='100', max='500', title='integer (100-500)')
+      tr
+        th
+          label(for='fieldOfView')
+            | Field of View (
+            span#currentFieldOfView
+            | ) :
+        td
+          input#fieldOfView(type='range', min='80', max='140', title='integer (80-140)')
+      tr
+        th
+          label(for='fogDensity')
+            | Fog Density (
+            span#currentFogDensity
+            | ) :
+        td
+          input#fogDensity(type='range', min='0', max='50', title='integer (0-50)')
+    #instructions
+      p
+        | Use the 
+        b arrow keys
+        |  to drive the car.
+    #racer
+      canvas#canvas
+        | Sorry, this example cannot be run because your browser does not support the <canvas> element
+      |     Loading...
+    audio#music
+      source(src='music/racer.ogg')
+      source(src='music/racer.mp3')
+    span#mute
+
     h2.text-center.col-md-12 Entorno
       .container-well
-        img(id="entorno", src="images/rv.jpg")
-    
-  include aboutUs.jade
+           
   include footer.jade
         
       
