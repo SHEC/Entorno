@@ -9,63 +9,48 @@ block content
         li
           a(data-toggle="modal" data-target="#newUser") Nuevo Usuario
         #newUser.modal.fade(role='dialog')
-          .modal-dialog
-            .modal-content
-              .modal-header
-                button.close(type="button", data-dismiss="modal" ) x
-                h4.modal-title Registrate para acceder a SHEC
-              .modal-body
-                .form-group
-                  label.control-label(for='userName') Nombre de usuario
-                  input.form-control(id='userName',type="text", placeholder="Indica tu nombre de usuario")
-                .form-group
-                  label.control-label(for='userPass') Contraseña
-                  input.form-control(id='userPass',type="password", placeholder="Indica tu contraseña")
-                .form-group
-                  label.control-label(for='email') Edad
-                  input.form-control(id='email',type="email", placeholder="Indica tu edad")
-                .form-group
-                  label.control-label(for='sell') Sexo:
-                  select.form-control(id="sell")
-                    option Selecciona tu sexo
-                    option M
-                    option F
-              .modal-footer
-                button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
-                button.btn.btn-primary(type="button") Registrar
+          form(action="/users/create", method="post")
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  button.close(type="button", data-dismiss="modal" ) x
+                  h4.modal-title Registrate para acceder a SHEC
+                .modal-body
+                  .form-group
+                    label.control-label(for='userName') Nombre de usuario
+                    input.form-control(id='userName',type="text", placeholder="Indica tu nombre de usuario", name="username")
+                  .form-group
+                    label.control-label(for='userPass') Contraseña
+                    input.form-control(id='userPass',type="password", placeholder="Indica tu contraseña", name="password")
+                  .form-group
+                    label.control-label(for='age') Edad
+                    input.form-control(id='age',type="number", placeholder="Indica tu edad", name="age")
+                .modal-footer
+                  button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
+                  button.btn.btn-primary(type="submit") Registrar
         li
-          a(data-toggle="modal" data-target="#oldUser") Usuario Registrado
+          a(data-toggle="modal" data-target="#oldUser") Log In
         #oldUser.modal.fade(role='dialog')
-          .modal-dialog
-            .modal-content
-              .modal-header
-                button.close(type="button", data-dismiss="modal" ) x
-                h4.modal-title Inicia sesión para acceder a SHEC
-              .modal-body
-                .form-group
-                  label.control-label(for='userName') Nombre de usuario
-                  input.form-control(id='userName',type="text", placeholder="Indica tu nombre de usuario")
-                .form-group
-                  label.control-label(for='userPass') Contraseña
-                  input.form-control(id='userPass',type="password", placeholder="Indica tu contraseña")
-              .modal-footer
-                button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
-                button.btn.btn-primary(type="button") Iniciar sesión
+          form(action="", method="get")
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  button.close(type="button", data-dismiss="modal" ) x
+                  h4.modal-title Inicia sesión para acceder a SHEC
+                .modal-body
+                  .form-group
+                    label.control-label(for='userName') Nombre de usuario
+                    input.form-control(id='userName',type="text", placeholder="Indica tu nombre de usuario")
+                  .form-group
+                    label.control-label(for='userPass') Contraseña
+                    input.form-control(id='userPass',type="password", placeholder="Indica tu contraseña")
+                .modal-footer
+                  button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
+                  button.btn.btn-primary(type="submit") Iniciar sesión
 
   //Main container
   .container
     table#controls
-      tr
-
-
-        td(colspan='2')
-          a(href='v1.straight.html') straight
-          |  |
-          a(href='v2.curves.html') curves
-          |      |
-          a(href='v3.hills.html') hills
-          |        |
-          a(href='v4.final.html') final
       tr
         td#fps(colspan='2', align='right')
       tr
@@ -73,19 +58,14 @@ block content
           label(for='resolution') Resolution :
         td
           select#resolution(style='width:100%')
-            option(value='fine') Fine (1280x960)
             option(selected='', value='high') High (1024x768)
-            option(value='medium') Medium (640x480)
-            option(value='low') Low (480x360)
       tr
         th
           label(for='lanes') Lanes :
         td
           select#lanes
-            option 1
-            option 2
             option(selected='') 3
-            option 4
+            
       tr
         th
           label(for='roadWidth')
@@ -126,11 +106,7 @@ block content
             | ) :
         td
           input#fogDensity(type='range', min='0', max='50', title='integer (0-50)')
-    #instructions
-      p
-        | Use the 
-        b arrow keys
-        |  to drive the car.
+    
     #racer
       canvas#canvas
         | Sorry, this example cannot be run because your browser does not support the <canvas> element
@@ -143,7 +119,7 @@ block content
     h2.text-center.col-md-12 Entorno
       .container-well
            
-  include footer.jade
+  //include footer.jade
         
       
         

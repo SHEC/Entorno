@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "ivanrangel",
+    "password": "1234",
+    "database": "shec",
+    "host": "127.0.0.1",
+    "port": "5432",
+    "dialect": "postgres"
+  }
+}

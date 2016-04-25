@@ -61,12 +61,13 @@ function update(dt) {
   hillOffset = Util.increase(hillOffset, hillSpeed * playerSegment.curve * speedPercent, 1);
   treeOffset = Util.increase(treeOffset, treeSpeed * playerSegment.curve * speedPercent, 1);
 
-  if (keyLeft)
+  /*if (keyLeft)
     playerX = playerX - dx;
   else if (keyRight)
     playerX = playerX + dx;
-
+  
   playerX = playerX - (dx * speedPercent * playerSegment.curve * centrifugal);
+  */
 
   if (keyFaster)
     speed = Util.accelerate(speed, accel, dt);
