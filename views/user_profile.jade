@@ -48,12 +48,9 @@ block content
                   button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
                   button.btn.btn-primary(type="submit") Iniciar sesión
 
-  .container
-    h2.text-center.col-md-12 Sistema Háptico de Entrenamiento para Ciclismo
   //Main container
   .container
-    include carousel.jade
-    //table#controls
+    table#controls
       tr
         td#fps(colspan='2', align='right')
       tr
@@ -110,16 +107,19 @@ block content
         td
           input#fogDensity(type='range', min='0', max='50', title='integer (0-50)')
     
-    //#racer
+    #racer
       canvas#canvas
         | Sorry, this example cannot be run because your browser does not support the <canvas> element
       |     Loading...
-    //audio#music
+    audio#music
       source(src='music/racer.ogg')
       source(src='music/racer.mp3')
-    //span#mute
+    span#mute
 
-  include footer.jade
+    h2.text-center.col-md-12 Entorno
+      .container-well
+           
+  //include footer.jade
         
       
         

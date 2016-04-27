@@ -1,0 +1,30 @@
+// SHEC Carousel
+
+#shec-carousel.carousel.slide(data-ride='carousel')
+  // Indicators
+  ol.carousel-indicators
+    li.active(data-target='#shec-carousel', data-slide-to='0')
+    li(data-target='#shec-carousel', data-slide-to='1')
+    li(data-target='#shec-carousel', data-slide-to='2')
+    li(data-target='#shec-carousel', data-slide-to='3')
+    li(data-target='#shec-carousel', data-slide-to='4')
+    li(data-target='#shec-carousel', data-slide-to='5')
+  // Wrapper for slides
+  .carousel-inner
+    .item.active
+      img(src='/images/1.jpg', alt='1')
+    .item
+      img(src='/images/2.jpg', alt='2')
+    .item
+      img(src='/images/3.jpg', alt='3')
+    .item
+      img(src='/images/4.jpg', alt='4')
+    .item
+      img(src='/images/5.jpg', alt='5')
+    .item
+      img(src='/images/6.jpg', alt='6')
+  // Controls
+  a.left.carousel-control(href='#shec-carousel', role='button', data-slide='prev')
+    span.glyphicon.glyphicon-chevron-left
+  a.right.carousel-control(href='#shec-carousel', role='button', data-slide='next')
+    span.glyphicon.glyphicon-chevron-right
