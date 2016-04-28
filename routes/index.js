@@ -23,18 +23,4 @@ router.get('/:user_name', function(req, res, next) {
   });
 });
 
-/*Log in*/
-router.get('/login', function(req, res, next) {
-  models.User.findOne({
-    where:{
-      username: req.body.username, 
-      $and:[{password: req.body.password}] 
-    }
-  }).then(function(user){
-    res.send(user);
-  });
-});
-
-
-
 module.exports = router;

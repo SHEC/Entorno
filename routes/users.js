@@ -19,6 +19,8 @@ router.post('/create', function(req, res) {
     age: req.body.age
   }).then(function() {
     res.redirect('/');
+    console.log(req.body.username);
+    console.log(req.body.password);
   });
 });
 
@@ -30,6 +32,27 @@ router.get('/:user_id/destroy', function(req, res) {
     }
   }).then(function() {
     res.send('ok');
+  });
+});
+
+
+/*Log in*/
+router.post('/login', function(req, res, next) {
+  models.User.findOne({
+    where:{
+      username: req.body.username,
+      $and:[{
+        password: req.body.password
+      }]
+    }
+  }).then(function(user){
+    if(user){
+      var user_name = user.username;
+      res.redirect("/"+user_name);
+    }
+    else{
+      res.send("Bad!!");
+    }
   });
 });
 
