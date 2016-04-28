@@ -1,0 +1,93 @@
+extends layout
+block content
+  //Navigation Bar
+  nav.navbar.navbar-inverse
+    .container
+      .navbar-header
+        a(href="#").navbar-brand= user.username
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(data-toggle="modal" data-target="#oldUser") Log out
+        li
+          a(data-toggle="modal" data-target="#oldUser", href="/user.username/stats") MD
+        
+        
+
+  //Main container
+  .container
+    table#controls
+      tr
+        td#fps(colspan='2', align='right')
+      tr
+        th
+          label(for='resolution') Resolution :
+        td
+          select#resolution(style='width:100%')
+            option(selected='', value='high') High (1024x768)
+      tr
+        th
+          label(for='lanes') Lanes :
+        td
+          select#lanes
+            option(selected='') 3
+            
+      tr
+        th
+          label(for='roadWidth')
+            | Road Width (
+            span#currentRoadWidth
+            | ) :
+        td
+          input#roadWidth(type='range', min='500', max='3000', title='integer (500-3000)')
+      tr
+        th
+          label(for='cameraHeight')
+            | CameraHeight (
+            span#currentCameraHeight
+            | ) :
+        td
+          input#cameraHeight(type='range', min='500', max='5000', title='integer (500-5000)')
+      tr
+        th
+          label(for='drawDistance')
+            | Draw Distance (
+            span#currentDrawDistance
+            | ) :
+        td
+          input#drawDistance(type='range', min='100', max='500', title='integer (100-500)')
+      tr
+        th
+          label(for='fieldOfView')
+            | Field of View (
+            span#currentFieldOfView
+            | ) :
+        td
+          input#fieldOfView(type='range', min='80', max='140', title='integer (80-140)')
+      tr
+        th
+          label(for='fogDensity')
+            | Fog Density (
+            span#currentFogDensity
+            | ) :
+        td
+          input#fogDensity(type='range', min='0', max='50', title='integer (0-50)')
+    
+    #racer
+      canvas#canvas
+        | Sorry, this example cannot be run because your browser does not support the <canvas> element
+      |     Loading...
+    audio#music
+      source(src='music/racer.ogg')
+      source(src='music/racer.mp3')
+    span#mute
+
+    h2.text-center.col-md-12 Entorno
+      .container-well
+           
+  //include footer.jade
+        
+      
+        
+  
+
+
