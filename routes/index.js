@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'SHEC' });
 });
 
-/*asaaaaaaaaaaaaaaa*/
+/*Get to an specific User!!*/
 router.get('/:user_name', function(req, res, next) {
   models.User.findOne({
     where:{username: req.params.user_name}
