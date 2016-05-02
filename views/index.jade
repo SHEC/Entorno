@@ -1,7 +1,5 @@
 extends layout
 block content
-  
-  //Navigation Bar
   nav.navbar.navbar-inverse
     .container
       .navbar-header
@@ -19,13 +17,13 @@ block content
                 .modal-body
                   .form-group
                     label.control-label(for='userName') Nombre de usuario
-                    input.form-control(id='userName',type="text", placeholder="Indica tu nombre de usuario", name="username")
+                    input.form-control(id='userName',type="text", placeholder="Indica tu nombre de usuario", name="username", required)
                   .form-group
                     label.control-label(for='userPass') Contraseña
-                    input.form-control(id='userPass',type="password", placeholder="Indica tu contraseña", name="password")
+                    input.form-control(id='userPass',type="password", placeholder="Indica tu contraseña", name="password", required)
                   .form-group
                     label.control-label(for='age') Edad
-                    input.form-control(id='age',type="number", placeholder="Indica tu edad", name="age")
+                    input.form-control(id='age',type="number", placeholder="Indica tu edad", name="age", required)
                 .modal-footer
                   button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
                   button.btn.btn-primary(type="submit") Registrar
@@ -41,10 +39,10 @@ block content
                 .modal-body
                   .form-group
                     label.control-label(for='userName') Nombre de usuario
-                    input.form-control(id='userName',type="text", placeholder="Indica tu nombre de usuario", name="username")
+                    input.form-control(id='userName',type="text", placeholder="Indica tu nombre de usuario", name="username", required)
                   .form-group
                     label.control-label(for='userPass') Contraseña
-                    input.form-control(id='userPass',type="password", placeholder="Indica tu contraseña", name="password")
+                    input.form-control(id='userPass',type="password", placeholder="Indica tu contraseña", name="password", required)
                 .modal-footer
                   button.btn.btn-default(type="button",data-dismiss="modal") Cancelar
                   button.btn.btn-primary(type="submit") Iniciar sesión

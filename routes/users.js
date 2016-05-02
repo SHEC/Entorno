@@ -17,7 +17,7 @@ router.post('/create', function(req, res) {
     username: req.body.username,
     password: req.body.password,
     age: req.body.age
-  }).then(function() {
+  }).then(function(user) {
     res.redirect('/');
   });
 });
