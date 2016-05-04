@@ -9,7 +9,7 @@ block content
         li
           a(href="/") Log out
         li
-          a(href="/") MD
+          a(href="/"+user.username+"/performance") MD
         
         
 
@@ -82,9 +82,12 @@ block content
     span#mute
 
     h2.text-center.col-md-12 Entorno
-      .container-well
-           
-  //include footer.jade
+    script.
+      $(document).on("ready", function(){
+        $("#controls").hide();  
+      });
+  
+
         
       
         

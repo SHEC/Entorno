@@ -29,7 +29,7 @@ router.get('/:user_id/destroy', function(req, res) {
       id: req.params.user_id
     }
   }).then(function() {
-    res.send('ok');
+    res.redirect("/users/all");
   });
 });
 
@@ -48,7 +48,7 @@ router.post('/login', function(req, res, next) {
       res.redirect("/"+user_name);
     }
     else{
-      res.send("Bad!!");
+      res.redirect("/");
     }
   });
 });
