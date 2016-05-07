@@ -131,7 +131,7 @@ var Game = {  // a modified version of the game loop from my previous boulderdas
         requestAnimationFrame(frame, canvas);
       }
       frame(); // lets get this party started
-      Game.playMusic();
+      //Game.playMusic();
     });
   },
 
@@ -203,7 +203,7 @@ var Game = {  // a modified version of the game loop from my previous boulderdas
 
   //---------------------------------------------------------------------------
 
-  playMusic: function() {
+  /*playMusic: function() {
     var music = Dom.get('music');
     music.loop = true;
     music.volume = 0.05; // shhhh! annoying music!
@@ -215,6 +215,7 @@ var Game = {  // a modified version of the game loop from my previous boulderdas
       Dom.toggleClassName('mute', 'on', music.muted);
     });
   }
+  */
 
 }
 
@@ -359,8 +360,8 @@ var COLORS = {
   FOG:  '#005108',
   LIGHT:  { road: '#6B6B6B', grass: '#10AA10', rumble: '#555555', lane: '#CCCCCC'  },
   DARK:   { road: '#696969', grass: '#009A00', rumble: '#BBBBBB'                   },
-  START:  { road: 'white',   grass: 'white',   rumble: 'white'                     },
-  FINISH: { road: 'black',   grass: 'black',   rumble: 'black'                     }
+  START:  { road: '#6B6B6B', grass: '#10AA10', rumble: '#555555', lane: '#CCCCCC'  },
+  FINISH: { road: '#696969', grass: '#009A00', rumble: '#BBBBBB'                   }
 };
 
 var BACKGROUND = {

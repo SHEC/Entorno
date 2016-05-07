@@ -8,11 +8,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'SHEC' });
 });
 
-/* GET home page. */
-router.get('/prueba', function(req, res, next) {
-  
-});
-
 
 /*Get to an specific User!!*/
 router.get('/:user_name', function(req, res, next) {
@@ -38,7 +33,7 @@ router.get('/:user_name/performance', function(req, res, next) {
   }).then(function(user){
     if(user){
       models.Session.create({
-        datesession: Date(),
+        datesession: new Date(),
         UserId: user.id
       }).then(function(){
         models.User.findOne({

@@ -185,9 +185,20 @@ $(document).on("ready", function(){
   }
 
   function addHill(num, height) {
-    num    = num    || ROAD.LENGTH.MEDIUM;
-    height = height || ROAD.HILL.MEDIUM;
-    addRoad(num, num, num, 0, height);
+    $.ajax({ 
+      url: "/motor/up",
+      type: "get",
+      succes: function (data){
+        console.log(data);
+        
+      },
+      error: function (XHR, estatus, error) {
+        console.log(error);
+        num    = num    || ROAD.LENGTH.MEDIUM;
+        height = height || ROAD.HILL.MEDIUM;
+        addRoad(num, num, num, 0, height);
+      }
+    })
   }
 
   function addCurve(num, curve, height) {
@@ -226,18 +237,17 @@ $(document).on("ready", function(){
 
     addStraight(ROAD.LENGTH.LONG/2);
     addHill(ROAD.LENGTH.SHORT, ROAD.HILL.LOW);
-
-    $.ajax({ 
-      url: "/prueba",
-      type: "get",
-      succes: function (){
-        console.log("GGGGGGGGGGGGGGGGGG");
+    $.ajax({
+      url: "/motor/up",
+      type: "GET",
+      dataType: "script",
+      success: function(data){
+        console.log(data)
       },
-      error: function (XHR, estatus, error) {
+      error: function(jXHR,error){
         console.log(error);
       }
-
-    })
+    });
     addLowRollingHills();
     addCurve(ROAD.LENGTH.MEDIUM, ROAD.CURVE.MEDIUM, ROAD.HILL.LOW);
     addLowRollingHills();
