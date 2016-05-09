@@ -4,17 +4,20 @@ var models = require ("../models");
 
 /* Motor up */
 router.get('/up', function(req, res, next) {
-  res.sendStatus(200, {data: "Sube"});
+  setInterval(function(){
+    
+  },3000);
 });
 
 /* Motor down */
 router.get('/down', function(req, res, next) {
-  res.sendStatus(200, {data: "Baja"});
+  console.log("baja");
+  
 });
 
 /* Motor stop */
 router.get('/stop', function(req, res, next) {
-  res.sendStatus(200, {data: "apaga"});
+  console.log("para");
   
 });
 

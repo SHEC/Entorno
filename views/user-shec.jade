@@ -13,6 +13,7 @@ block content
         
   //Main container
   .container
+    h2.text-center.text-primary(id="instrucc") El entorno se desplegara en 5 segundos, sube ahora.
     table#controls
       tr
         td#fps(colspan='2', align='right')
@@ -79,10 +80,13 @@ block content
       source(src='music/racer.mp3')
     span#mute
 
-    h2.text-center.col-md-12 Entorno
+    h2.text-center.col-md-12 Entorno SHEC
+      br
+      button.btn.btn-warning(id = "stop") Detener
     script.
       $(document).on("ready", function(){
-        $("#controls").hide();  
+        $("#controls").hide(); 
+
       });
   
 
