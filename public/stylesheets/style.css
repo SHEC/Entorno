@@ -1,8 +1,4 @@
-@font-face {
-    font-family: 'Offside', cursive;
-    src: url(https://fonts.googleapis.com/css?family=Offside) format("truetype");
-}
-
+font-family: 'Offside', cursive;
 
 a {
   font-size: 18px;
