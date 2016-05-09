@@ -1,6 +1,13 @@
 $(document).on("ready", function(){
   setTimeout(function(){
     $("#instrucc").hide();
+    $("#stop").on("click",function(){
+      keyFaster = false;
+      $("#md").on("click", function(){
+
+      });
+    })
+
     var fps           = 60;                      // how many 'update' frames per second
     var step          = 1/fps;                   // how long is each frame (in seconds)
     var width         = 1024;                    // logical canvas width
