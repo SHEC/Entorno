@@ -1,6 +1,6 @@
 $(document).on("ready", function(){
   setTimeout(function(){
-    $("#instrucc").hide();
+    $("#instrucc").text("Méx. - Qro.");
     $("#stop").on("click",function(){
       keyFaster = false;
       $("#md").on("click", function(){
@@ -228,7 +228,7 @@ $(document).on("ready", function(){
 
     function addDownhillToEnd(num) {
       num = num || 200;
-      addRoad(num, num, num, num, -lastY()/segmentLength);
+      addRoad(num, num, num, -ROAD.CURVE.EASY, -lastY()/segmentLength);
     }
 
     function resetRoad() {

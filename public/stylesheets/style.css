@@ -1,7 +1,12 @@
 a {
   font-size: 18px;
 }
-#entorno{
-  width:  90%;
-  height: 90%;
+
+#entorno {
+  width:  70%;
+  height: 70%;
+}
+
+#racer {
+  margin: 0 auto;
 }

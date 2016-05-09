@@ -12,10 +12,7 @@ block content
           a(href="/"+user.username+"/performance") MD
         
   //Main container
-  .container
-    h2.text-center.text-primary(id="instrucc") El entorno se desplegara en 5 segundos, sube ahora.
-    .col-md-10
-      table#controls
+  table#controls
         tr
           td#fps(colspan='2', align='right')
         tr
@@ -30,7 +27,6 @@ block content
           td
             select#lanes
               option(selected='') 3
-              
         tr
           th
             label(for='roadWidth')
@@ -71,21 +67,24 @@ block content
               | ) :
           td
             input#fogDensity(type='range', min='0', max='50', title='integer (0-50)')
-      
-      #racer
-        canvas#canvas
-          | Sorry, this example cannot be run because your browser does not support the <canvas> element
-        |     Loading...
-      //audio#music
-        source(src='music/racer.ogg')
-        source(src='music/racer.mp3')
-      span#mute
-    .col-md-2
-      h2(id = "crono") 00:00:00
-    h2.text-center.col-md-12 Entorno SHEC
-      br
-      a(href="/"+user.username+"/create_performance")
-        button.btn.btn-primary(id = "stop") Detener
+  h2.text-center.text-primary(id="instrucc") El entorno se desplegará en 5 segundos, sube ahora.
+  .col-md-8
+    #racer
+      canvas#canvas
+        | Sorry, this example cannot be run because your browser does not support the <canvas> element
+      |     Loading...
+    //audio#music
+      source(src='music/racer.ogg')
+      source(src='music/racer.mp3')
+    span#mute
+  .col-md-4.text-center
+    h2 Tiempo de recorrido:
+    h2(id = "crono") 00:00:00
+    br
+    a(href="/"+user.username+"/create_performance")
+      button.btn.btn-primary(id = "stop") Detener
+    
+
       
     script.
       $(document).on("ready", function(){
