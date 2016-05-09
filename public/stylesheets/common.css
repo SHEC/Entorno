@@ -2,7 +2,7 @@
 /****************************************/
 /* common styles used for v1 through v4 */
 /****************************************/
-
+font-family: 'Offside', cursive;
 body          { font-family: 'Offside', cursive; }
 #stats        { border: 2px solid black; }
 #controls     { width: 28em; float: left; padding: 1em; font-size: 0.7em; }
