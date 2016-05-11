@@ -313,12 +313,25 @@ var Render = {
 
     var bounce = (1.5 * Math.random() * speedPercent * resolution) * Util.randomChoice([-1,1]);
     var sprite;
-    if (steer < 0)
+    if (steer < 0){
       sprite = (updown > 0) ? SPRITES.PLAYER_UPHILL_LEFT : SPRITES.PLAYER_LEFT;
+      
+    }
     else if (steer > 0)
       sprite = (updown > 0) ? SPRITES.PLAYER_UPHILL_RIGHT : SPRITES.PLAYER_RIGHT;
-    else
+    else{
       sprite = (updown > 0) ? SPRITES.PLAYER_UPHILL_STRAIGHT : SPRITES.PLAYER_STRAIGHT;
+      /*$.ajax({
+        url:"/motor/up",
+        type:"GET",
+        success: function(){
+          console.log("subendo");
+        },
+        error: function(jqXHR, error){
+          console.log(error);
+        }
+      });*/
+    }
 
     Render.sprite(ctx, width, height, resolution, roadWidth, sprites, sprite, scale, destX, destY + bounce, -0.5, -1);
   },

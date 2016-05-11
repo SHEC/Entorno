@@ -4,7 +4,8 @@ var models = require ("../models");
 
 /* Motor up */
 router.get('/up', function(req, res, next) {
- 
+   console.log("1");
+
  });
 
 /* Motor down */
