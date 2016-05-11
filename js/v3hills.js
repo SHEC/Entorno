@@ -235,12 +235,13 @@ $(document).on("ready", function(){
       segments = [];
 
       addStraight(ROAD.LENGTH.LONG/2);
-      addHill(ROAD.LENGTH.SHORT, ROAD.HILL.LOW);
-      addLowRollingHills();
+      addHill(ROAD.LENGTH.LOW, ROAD.HILL.HIGHT);
+      addStraight(ROAD.LENGTH.LONGf);
+      //addLowRollingHills();
       //addCurve(ROAD.LENGTH.MEDIUM, ROAD.CURVE.MEDIUM, ROAD.HILL.LOW);
-      addLowRollingHills();
+      //addLowRollingHills();
       //addCurve(ROAD.LENGTH.LONG, ROAD.CURVE.MEDIUM, ROAD.HILL.MEDIUM);
-      addStraight();
+      //addStraight();
       //addCurve(ROAD.LENGTH.LONG, -ROAD.CURVE.MEDIUM, ROAD.HILL.MEDIUM);
       addHill(ROAD.LENGTH.LONG, ROAD.HILL.HIGH);
       //addCurve(ROAD.LENGTH.LONG, ROAD.CURVE.MEDIUM, -ROAD.HILL.LOW);
@@ -270,7 +271,7 @@ $(document).on("ready", function(){
       keys: [
         { keys: [KEY.LEFT,  KEY.A], mode: 'down', action: function() { keyLeft   = false;  } },
         { keys: [KEY.RIGHT, KEY.D], mode: 'down', action: function() { keyRight  = false;  } },
-        { keys: [KEY.UP,    KEY.W], mode: 'down', action: function() { keyFaster = true;  } },
+        { keys: [KEY.UP,    KEY.W], mode: 'down', action: function() { keyFaster = false;  } },
         { keys: [KEY.DOWN,  KEY.S], mode: 'down', action: function() { keySlower = true;  } },
         { keys: [KEY.LEFT,  KEY.A], mode: 'up',   action: function() { keyLeft   = false; } },
         { keys: [KEY.RIGHT, KEY.D], mode: 'up',   action: function() { keyRight  = false; } },

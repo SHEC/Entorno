@@ -321,16 +321,16 @@ var Render = {
       sprite = (updown > 0) ? SPRITES.PLAYER_UPHILL_RIGHT : SPRITES.PLAYER_RIGHT;
     else{
       sprite = (updown > 0) ? SPRITES.PLAYER_UPHILL_STRAIGHT : SPRITES.PLAYER_STRAIGHT;
-      /*$.ajax({
-        url:"/motor/up",
-        type:"GET",
-        success: function(){
-          console.log("subendo");
+      $.ajax({
+        url:"motor/up",
+        type: "get",
+        success: function(data){
+          console.log(data);
         },
-        error: function(jqXHR, error){
-          console.log(error);
+        error: function (jXHR, error){
+          console.log('error ' + error);
         }
-      });*/
+      });
     }
 
     Render.sprite(ctx, width, height, resolution, roadWidth, sprites, sprite, scale, destX, destY + bounce, -0.5, -1);
