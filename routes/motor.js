@@ -146,7 +146,7 @@ router.get('/stop', function(req, res, next) {
 		
 		}
 	}).start();
-  res.status(200);
+  res.status(200);  
   }else{
     res.status(200)
   }
