@@ -128,7 +128,7 @@ var Game = {  // a modified version of the game loop from my previous boulderdas
         render();
         //stats.update();
         last = now;
-        requestAnimationFrame(frame, canvas);
+        window.REQUEST_ID = requestAnimationFrame(frame, canvas);
       }
       frame(); // lets get this party started
       //Game.playMusic();
@@ -307,30 +307,51 @@ var Render = {
 
   },
 
-  //---------------------------------------------------------------------------
+  lastTT: NaN,
+  updateRasp: function(tt){
+    var params = ['stop', 'up', 'down'];
+    var url = 'motor/' + params[tt];
 
-  player: function(ctx, width, height, resolution, roadWidth, sprites, speedPercent, scale, destX, destY, steer, updown) {
-
-    var bounce = (1.5 * Math.random() * speedPercent * resolution) * Util.randomChoice([-1,1]);
-    var sprite;
-    if (steer < 0){
-      sprite = (updown > 0) ? SPRITES.PLAYER_UPHILL_LEFT : SPRITES.PLAYER_LEFT;
-      
-    }
-    else if (steer > 0)
-      sprite = (updown > 0) ? SPRITES.PLAYER_UPHILL_RIGHT : SPRITES.PLAYER_RIGHT;
-    else{
-      sprite = (updown > 0) ? SPRITES.PLAYER_UPHILL_STRAIGHT : SPRITES.PLAYER_STRAIGHT;
-      $.ajax({
-        url:"motor/up",
+     $.ajax({
+        url: url,
         type: "get",
         success: function(data){
-          console.log(data);
+          console.log({tt: tt});
         },
         error: function (jXHR, error){
           console.log('error ' + error);
         }
       });
+  },
+
+  //---------------------------------------------------------------------------
+
+  player: function(ctx, width, height, resolution, roadWidth, sprites, speedPercent, scale, destX, destY, steer, updown) {
+
+    var bounce = (1.5 * Math.random() * speedPercent * resolution) * Util.randomChoice([-1,1]);
+    var sprite, tt;
+
+
+    if(updown === 0){ // Plano
+      tt = 0;
+    }else if(updown > 0){ // Subida 
+      tt = 1;
+    }else{ // Bajada
+      tt = 2;
+    }
+
+    if(this.lastTT !== tt){
+      this.updateRasp(tt);
+      this.lastTT = tt;
+    }
+
+    if (steer < 0){
+      sprite = (updown > 0) ? SPRITES.PLAYER_UPHILL_LEFT : SPRITES.PLAYER_LEFT;
+    }
+    else if (steer > 0)
+      sprite = (updown > 0) ? SPRITES.PLAYER_UPHILL_RIGHT : SPRITES.PLAYER_RIGHT;
+    else{
+      sprite = (updown > 0) ? SPRITES.PLAYER_UPHILL_STRAIGHT : SPRITES.PLAYER_STRAIGHT;
     }
 
     Render.sprite(ctx, width, height, resolution, roadWidth, sprites, sprite, scale, destX, destY + bounce, -0.5, -1);

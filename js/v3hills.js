@@ -143,14 +143,15 @@ $(document).on("ready", function(){
                        segment.color);
 
         maxy = segment.p2.screen.y;
+
       }
 
       Render.player(ctx, width, height, resolution, roadWidth, sprites, speed/maxSpeed,
-                    cameraDepth/playerZ,
-                    width/2,
-                    (height/2) - (cameraDepth/playerZ * Util.interpolate(playerSegment.p1.camera.y, playerSegment.p2.camera.y, playerPercent) * height/2),
+                   cameraDepth/playerZ,
+                   width/2,
+                   (height/2) - (cameraDepth/playerZ * Util.interpolate(playerSegment.p1.camera.y, playerSegment.p2.camera.y, playerPercent) * height/2),
                     speed * (keyLeft ? -1 : keyRight ? 1 : 0),
-                    playerSegment.p2.world.y - playerSegment.p1.world.y);
+                   playerSegment.p2.world.y - playerSegment.p1.world.y);
     }
 
     //=========================================================================
@@ -234,19 +235,19 @@ $(document).on("ready", function(){
     function resetRoad() {
       segments = [];
 
-      addStraight(ROAD.LENGTH.LONG/2);
-      addHill(ROAD.LENGTH.LOW, ROAD.HILL.HIGHT);
-      addStraight(ROAD.LENGTH.LONGf);
-      //addLowRollingHills();
+      addStraight(10);
+      addHill(100, 200);
+      addLowRollingHills(100,100);
+      addStraight();
+      //addStraight(ROAD.LENGTH.LONGf);
       //addCurve(ROAD.LENGTH.MEDIUM, ROAD.CURVE.MEDIUM, ROAD.HILL.LOW);
       //addLowRollingHills();
       //addCurve(ROAD.LENGTH.LONG, ROAD.CURVE.MEDIUM, ROAD.HILL.MEDIUM);
       //addStraight();
       //addCurve(ROAD.LENGTH.LONG, -ROAD.CURVE.MEDIUM, ROAD.HILL.MEDIUM);
-      addHill(ROAD.LENGTH.LONG, ROAD.HILL.HIGH);
+      //addHill(ROAD.LENGTH.LONG, ROAD.HILL.HIGH);
       //addCurve(ROAD.LENGTH.LONG, ROAD.CURVE.MEDIUM, -ROAD.HILL.LOW);
-      addHill(ROAD.LENGTH.LONG, -ROAD.HILL.MEDIUM);
-      addStraight();
+      //addHill(ROAD.LENGTH.LONG, -ROAD.HILL.MEDIUM);
       addDownhillToEnd();
 
       segments[findSegment(playerZ).index + 2].color = COLORS.START;

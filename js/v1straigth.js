@@ -150,7 +150,7 @@
     //=========================================================================
 
     Game.run({
-      canvas: canvas, render: render, update: update, step: step,
+      canvas: canvas, render: null, update: update, step: step,
       images: ["background", "sprites"],
       keys: [
         { keys: [KEY.LEFT,  KEY.A], mode: 'down', action: function() { keyLeft   = true;  } },
