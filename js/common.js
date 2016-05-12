@@ -309,7 +309,7 @@ var Render = {
 
   lastTT: NaN,
   updateRasp: function(tt){
-    var params = ['stop', 'up', 'down'];
+    var params = [ 'stop', 'up', 'down', 'plano'];
     var url = 'motor/' + params[tt];
 
      $.ajax({
@@ -333,11 +333,13 @@ var Render = {
 
 
     if(updown === 0){ // Plano
-      tt = 0;
+      tt = 3;
     }else if(updown > 0){ // Subida 
       tt = 1;
-    }else{ // Bajada
-      tt = 2;
+    }else if(updown < 0)
+	  tt = 2;
+	}else // Bajada
+         
     }
 
     if(this.lastTT !== tt){
