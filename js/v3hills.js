@@ -4,7 +4,13 @@ $(document).on("ready", function(){
     $("#stop").on("click",function(){
       keyFaster = false;
       $("#md").on("click", function(){
-
+        $.ajax({
+          url:"motor/stop",
+          type:"get",
+          success: function (){
+            console.log('para');
+          }
+        })
       });
     })
 
