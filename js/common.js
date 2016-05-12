@@ -308,18 +308,18 @@ var Render = {
   },
 
   lastTT: NaN,
-  updateRasp: function(tt){
-    var params = [ 'stop', 'up', 'down', 'plano'];
-    var url = 'motor/' + params[tt];
+  updateRasp: function(state){
+    var params = [ 'straight', 'up', 'down'];
+    var url = 'motor/' + params[state];
 
      $.ajax({
         url: url,
         type: "get",
         success: function(data){
-          console.log({tt: tt});
+          console.log({state: state});
         },
         error: function (jXHR, error){
-          console.log('error ' + error);
+          console.log('Something wrong ' + error);
         }
       });
   },
@@ -329,23 +329,22 @@ var Render = {
   player: function(ctx, width, height, resolution, roadWidth, sprites, speedPercent, scale, destX, destY, steer, updown) {
 
     var bounce = (1.5 * Math.random() * speedPercent * resolution) * Util.randomChoice([-1,1]);
-    var sprite, tt;
+    var sprite, state;
 
-
-    if(updown === 0){ // Plano
-      tt = 3;
-    }else if(updown > 0){ // Subida 
-      tt = 1;
-    }else if(updown < 0)
-	  tt = 2;
-	}else // Bajada
-         
+    /* endpoint controls*/
+    if(updown === 0){ // straigth
+      state = 0;
+    }else if(updown > 0){ // Up 
+      state = 1;
+    }else{ //Down
+	   state = 2;
     }
-
-    if(this.lastTT !== tt){
-      this.updateRasp(tt);
-      this.lastTT = tt;
+	
+    if(this.lastTT !== state){
+      this.updateRasp(state);
+      this.lastTT = state;
     }
+    /********************/
 
     if (steer < 0){
       sprite = (updown > 0) ? SPRITES.PLAYER_UPHILL_LEFT : SPRITES.PLAYER_LEFT;

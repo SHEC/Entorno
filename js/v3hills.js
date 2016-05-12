@@ -8,7 +8,7 @@ $(document).on("ready", function(){
           url:"motor/stop",
           type:"get",
           success: function (){
-            console.log('para');
+            console.log('stoped');
           }
         })
       });
