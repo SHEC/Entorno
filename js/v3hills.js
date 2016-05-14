@@ -207,7 +207,7 @@ $(document).on("ready", function(){
 
     function addCurve(num, curve, height) {
       num    = num    || ROAD.LENGTH.MEDIUM;
-      curve  = curve  || ROAD.CURVE.MEDIUM;
+      curve  = curve  || ROAD.CURVE.MEDIUM;	
       height = height || ROAD.HILL.NONE;
       addRoad(num, num, num, curve, height);
     }
@@ -215,12 +215,13 @@ $(document).on("ready", function(){
     function addLowRollingHills(num, height) {
       num    = num    || ROAD.LENGTH.SHORT;
       height = height || ROAD.HILL.LOW;
-      addRoad(num, num, num,  0,  height/2);
+      //addRoad(num, num, num,  0,  height/2);
       addRoad(num, num, num,  0, -height);
-      addRoad(num, num, num,  0,  height);
+/*      
+	addRoad(num, num, num,  0,  height);
       addRoad(num, num, num,  0,  0);
       addRoad(num, num, num,  0,  height/2);
-      addRoad(num, num, num,  0,  0);
+      addRoad(num, num, num,  0,  0);*/
     }
 
     function addSCurves() {
@@ -239,9 +240,12 @@ $(document).on("ready", function(){
     function resetRoad() {
       segments = [];
 
-      addStraight(10);
-      addHill(100, 200);
-      addLowRollingHills(100,100);
+      addStraight(100);
+      addHill(75, 300);
+      addStraight(100);
+	  addHill(75, 300);
+      addStraight();
+      addLowRollingHills(50,100);
       addStraight();
       //addStraight(ROAD.LENGTH.LONGf);
       //addCurve(ROAD.LENGTH.MEDIUM, ROAD.CURVE.MEDIUM, ROAD.HILL.LOW);

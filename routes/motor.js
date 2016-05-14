@@ -7,7 +7,8 @@ var router = express.Router();
 router.get('/up', function(req, res, next) {
    if (req.xhr){
     var Cylon = require ('cylon');
-
+	var cUp = 0;
+    
   	Cylon.robot({
   		connections: {
   			raspi: { adaptor: 'raspi' }
@@ -32,23 +33,24 @@ router.get('/up', function(req, res, next) {
 
   			//Validaciones de Giro
   			subir();
-  			var c = 0;
+  			cUp = 0;
   			my.pSen.on('release', function(){
-  				c++;
-  				console.log(c);
+  				cUp++;
+  				//console.log(cUp);
   				my.pLed.turnOn();
-  				if(c == 5){
+  				if(cUp == 30){
   					my.pLed.turnOff();
   					my.pEna.digitalWrite(0);
-  					after((1).second(), function() {
-  						c = 0;
+  					/*after((1).second(), function() {
+  						cUp = 0;
   					  	//process.exit();
-  					});
+  					});*/
   				}
   			});
   			//Fin Validaciones de Giro
   		}
   	}).start();
+	cUp = 0;
     res.send("ok")
    }
    else{
@@ -60,6 +62,7 @@ router.get('/up', function(req, res, next) {
 router.get('/down', function(req, res, next) {
   if(req.xhr){
    var Cylon = require ('cylon');
+	var cDown = 0; 
 
 	Cylon.robot({
 		connections: {
@@ -85,23 +88,24 @@ router.get('/down', function(req, res, next) {
 
 			//Validaciones de Giro
 			bajar();
-			var c = 0;
+			cDown = 0;
 			my.pSen.on('release', function(){
-				c++;
-				console.log(c);
+				cDown++;
+				//console.log(cDown);
 				my.pLed.turnOn();
-				if(c == 5){
+				if(cDown == 30){
 					my.pLed.turnOff();
 					my.pEna.digitalWrite(0);
-					after((1).second(), function() {
-						c = 0;
+					/*after((1).second(), function() {
+						cDOwn = 0;
 					  	//process.exit();
-					});
+					})*/
 				}
 			});
 			//Fin Validaciones de Giro
 		}
 	}).start();
+	cDown = 0;
     res.send("ok")
   }else{
     res.status(200)

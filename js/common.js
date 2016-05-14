@@ -308,7 +308,7 @@ var Render = {
   },
 
   lastTT: NaN,
-  updateRasp: function(state){
+  /*updateRasp: function(state){
     var params = [ 'straight', 'up', 'down'];
     var url = 'motor/' + params[state];
 
@@ -322,7 +322,28 @@ var Render = {
           console.log('Something wrong ' + error);
         }
       });
-  },
+  },*/
+	updateRasp: function(state, lastState){
+		var params = ['straight', 'up', 'down'];
+		var url; 
+
+		if((lastState === 0 && state === 1)	|| (lastState === 2 && state === 0))
+			url = 'motor/' + params[1]; //UP
+		else if((lastState === 1 && state === 0) || (lastState === 0 && state === 2))
+			url = 'motor/' + params[2]; //DOWN
+		else url = 'motor/' + params[0]; //DOWN
+
+		 $.ajax({
+		    url: url,
+		    type: "get",
+		    success: function(data){
+		      console.log({state: state});
+		    },
+		    error: function (jXHR, error){
+		      console.log('Something wrong ' + error);
+		    }
+		  });
+	},
 
   //---------------------------------------------------------------------------
 
@@ -340,8 +361,8 @@ var Render = {
 	   state = 2;
     }
 	
-    if(this.lastTT !== state){
-      this.updateRasp(state);
+    if(this.lastTT !== state){	
+      this.updateRasp(state, this.lastTT);
       this.lastTT = state;
     }
     /********************/
