@@ -17,13 +17,13 @@ block content
           th # de Sesión
           th Fecha de Sesión
           th Ruta
-          th Distancia Recorrida (Km)
+          th Tiempo de Recorrido 
           each sess, index in user.Sessions
             tbody
               tr
                 td= index+1
                 td= sess.datesession
                 td Méx.-Qro.
-                td= Math.floor((Math.random()*100)+1)
+                td= sess.timesession
         
             
