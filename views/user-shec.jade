@@ -67,6 +67,7 @@ block content
               | ) :
           td
             input#fogDensity(type='range', min='0', max='50', title='integer (0-50)')
+  
   h2.text-center.text-primary(id="instrucc") El entorno se desplegará en 5 segundos, sube ahora.
   .col-md-7
     #racer
@@ -81,14 +82,15 @@ block content
     h2 Tiempo de recorrido:
     h2(id = "crono") 00:00:00
     br
-    a(href="/"+user.username+"/create_performance")
+    a(href="/"+user.username+"/performance")
       button.btn.btn-primary(id = "stop") Detener
-    
-
-      
     script.
       $(document).on("ready", function(){
         $("#controls").hide();
+        
+
+
+
       });
   
 
