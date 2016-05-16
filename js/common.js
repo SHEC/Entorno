@@ -308,22 +308,7 @@ var Render = {
   },
 
   lastTT: NaN,
-  /*updateRasp: function(state){
-    var params = [ 'straight', 'up', 'down'];
-    var url = 'motor/' + params[state];
-
-     $.ajax({
-        url: url,
-        type: "get",
-        success: function(data){
-          console.log({state: state});
-        },
-        error: function (jXHR, error){
-          console.log('Something wrong ' + error);
-        }
-      });
-  },*/
-	updateRasp: function(state, lastState){
+ 	updateRasp: function(state, lastState){
 		var params = ['straight', 'up', 'down'];
 		var url; 
 
