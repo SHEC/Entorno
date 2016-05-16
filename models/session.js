@@ -4,7 +4,10 @@
 module.exports =function(sequelize, DataTypes){
   var Session = sequelize.define('Session', {
     datesession: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATE
+    },
+    timesession: {
+      type: DataTypes.TIME
     }
   }, {
       timestamps: false,
