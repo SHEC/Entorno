@@ -1,17 +1,30 @@
 $(document).on("ready", function(){
-  setTimeout(function(){
+  setTimeout(function(){  
     $("#instrucc").text("Méx. - Qro.");
     $("#stop").on("click",function(){
       keyFaster = false;
       $.ajax({
         url:"motor/stop",
         type:"get",
+        dataType: "text",
         success: function (){
           console.log('stoped');
         }
       });
-    })
+      var timesess = $("#crono").text();
+      var loc = $(location).attr("pathname");
+      url =loc+"/create_performance" 
+      $.ajax({
+        url:url+"/"+timesess,
+        type: "get",
+        success: function(data){
+          console.log(data);
+          
+        }
+      })
+      
 
+    });
     var fps           = 60;                      // how many 'update' frames per second
     var step          = 1/fps;                   // how long is each frame (in seconds)
     var width         = 1024;                    // logical canvas width
