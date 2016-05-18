@@ -52,7 +52,7 @@ $(document).on("ready", function(){
     var fieldOfView   = 100;                     // angle (degrees) for field of view
     var cameraHeight  = 1000;                    // z height of camera
     var cameraDepth   = null;                    // z distance camera is from screen (computed)
-    var drawDistance  = 300;                     // number of segments to draw
+    var drawDistance  = 500;                     // number of segments to draw
     var playerX       = 0;                       // player x offset from center of road (-1 to 1 to stay independent of roadWidth)
     var playerZ       = null;                    // player relative z distance from camera (computed)
     var fogDensity    = 5;                       // exponential fog density
@@ -254,9 +254,9 @@ $(document).on("ready", function(){
       segments = [];
 
       addStraight(100);
-      addHill(75, 300);
+      addHill(100, 100);
       addStraight(100);
-	  addHill(75, 300);
+	    addHill(100, 100);
       addStraight();
       addLowRollingHills(50,100);
       addStraight();
