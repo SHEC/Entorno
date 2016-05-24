@@ -41,12 +41,12 @@ Optional (build tools):
 ```
 $ sudo apt-get install -y build-essential
 ```
-Next we need to clone this repo. Yo can do it in clicking on the green button on the rigth corner "Clone or download".
+Next we need to clone this repo. You can do it clicking on the green button on the rigth corner "Clone or download".
 
 Once the project was cloned, do this:
 
 1 - Move to the directory of the project
-2 -  Install global dependencies  for node with: 
+2 -  Install global dependencies for node with: 
 ```
   $ sudo npm install -g bower
   $ sudo npm install -g nodemon
@@ -87,4 +87,4 @@ Once you have done all the previous instructions, you need to run the pi-blaster
 ```
   $ sudo nodemon bin/www
 ```
-And that's all what you need!!!
+And that's all what you need to run SHEC!!!
